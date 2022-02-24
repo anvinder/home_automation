@@ -9,3 +9,4 @@ sleep(5)
 # picture file name is in single-quotes inside the parens.
 camera.capture('/home/pi/Desktop/image.jpg')
 camera.stop_preview()
+
