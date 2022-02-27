@@ -1,0 +1,44 @@
+import RPi.GPIO as GPIO
+from time import sleep, time
+import datetime
+from gpiozero import LED
+from picamera import PiCamera
+camera = PiCamera()
+led = LED(27)
+
+camera.resolution = (400, 200)
+camera.vflip = True
+camera.contrast = 10
+
+
+GPIO.setmode(GPIO.BCM)  # Configures pin numbering to Broadcom reference
+
+GPIO.setup(27, GPIO.OUT)  # Set our GPIO pin to output
+GPIO.output(27, False)  # Set output to off
+
+# Set GPIO pin to input and activate pull_down resistor
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+sleep(1)
+
+try:
+    while True:
+        if GPIO.input(17):
+            led.on()
+            GPIO.output(27, True)  # Turn LED on
+            print("Sensor Triggered, Recording Motion\n")
+            file_name = "/home/pi/Pictures/" + str(datetime.datetime.now()) + ".h264"
+            camera.start_recording(file_name)
+            camera.wait_recording(10)
+            sleep(1)
+            camera.stop_recording()
+            camera.stop_preview()
+            print("Recording saved, Waiting for Motion Trigger")
+        else:
+            led.off()
+            # camera.stop_recording()
+            GPIO.output(27, False)  # Turn LED off
+
+
+except KeyboardInterrupt:  # catch that ctrl+C has been pressed
+    print("Shutting Down")
