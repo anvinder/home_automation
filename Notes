@@ -1,11 +1,19 @@
-Step1: Adding motion PIR sensor to the raspberry pi and checking the motion using python code. 
-
-
-vcgencmd get_camera
-vcgencmd version
-uname -a
-sudo vcdbg log assert
-dmesg
-/boot/config.txt
-
+Download the raspberry pi OS on the sd card. 
+Connect the raspberry pi camera to the Pi and change the Pi preferences using the CMD: sudo raspi-config
+  - Enable legacy support of camera
+  - Enable I2C and SPI (just in csae). 
+  - Enable VNC if you plan to remote in to the camera
+  - Restart the pi
+ Check if the camera is working using the following :
+  - raspistill -o test.jpg (The camera shows preview for 5 seconds before turnning off)
+  if there are any errors please try the following:
+    - vcgencmd get_camera
+      - The output from this must be "supported=1 detected=1", if not then there could be camera hardware issues. 
+    if you see "supported=1 detected=1" and the camera still doesn't work please try the following:
+      - go to the /boot/config.txt file and add "start_debug=1" at the end of file.
+        - sudo vcdbg log assert
+      - vcgencmd version
+      - uname -a
+      - dmesg
+  
 
