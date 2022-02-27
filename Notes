@@ -1,1 +1,9 @@
 Step1: Adding motion PIR sensor to the raspberry pi and checking the motion using python code. 
+
+
+vcgencmd get_camera
+vcgencmd version
+uname -a
+sudo vcdbg log assert
+dmesg
+/boot/config.txt
