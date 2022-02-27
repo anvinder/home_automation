@@ -10,10 +10,21 @@ Connect the raspberry pi camera to the Pi and change the Pi preferences using th
     - vcgencmd get_camera
       - The output from this must be "supported=1 detected=1", if not then there could be camera hardware issues. 
     if you see "supported=1 detected=1" and the camera still doesn't work please try the following:
-      - go to the /boot/config.txt file and add "start_debug=1" at the end of file.
-        - sudo vcdbg log assert
+      - Go to the /boot/config.txt file and add "start_debug=1" at the end of file.
+        - type: sudo vcdbg log assert
+        - if the error is something like this" vcdbg_ctx_get_dump_stack: dump_stack failed" it means there is some other resource using the camera. 
+          - Try changing the GPU memory to 256MB and see if it helps, check all processes (ps -aux).
+          - Make sure i2c is enabled in raspi-config
+          - Last resort is to reinstall the OS , that's what helped me. 
+    
+    - Some other camera debug comands:
       - vcgencmd version
       - uname -a
       - dmesg
   
+Once the camera works, install pycharm.
+
+Upon pycharm installation, run it. There could be a java error. Run the following commands to get over the java error :
+  - sudo apt update
+  - sudo apt install default-jdk
 
