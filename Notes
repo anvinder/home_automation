@@ -28,3 +28,11 @@ Upon pycharm installation, run it. There could be a java error. Run the followin
   - sudo apt update
   - sudo apt install default-jdk
 
+Now setup pycharm to use venv python 3.x that came. 
+use the scripts from my "home_atutomation" folder to test the picam, PIR sensor and other things. 
+
+
+
+Next steps: 
+- save the video on network drive instead of local drive
+- Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
