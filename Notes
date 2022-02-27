@@ -7,3 +7,5 @@ uname -a
 sudo vcdbg log assert
 dmesg
 /boot/config.txt
+
+
