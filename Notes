@@ -31,6 +31,13 @@ Upon pycharm installation, run it. There could be a java error. Run the followin
 Now setup pycharm to use venv python 3.x that came. 
 use the scripts from my "home_atutomation" folder to test the picam, PIR sensor and other things. 
 
+In order to save the videos on the network, conenct a storage to the router/ network to make ti work like NAS. 
+  Make sure to format the disk using the following commands in linux:
+  - df
+  - sudo umount /dev/sda1
+  - sudo mkfs.ntfs /dev/sda1
+  Access this folder from windows using \\IP\folder_name and see if you can access. 
+  Make sure to password protect the folder just in case. 
 
 
 Next steps: 
