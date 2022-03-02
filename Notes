@@ -38,6 +38,17 @@ In order to save the videos on the network, conenct a storage to the router/ net
   - sudo mkfs.ntfs /dev/sda1
   Access this folder from windows using \\IP\folder_name and see if you can access. 
   Make sure to password protect the folder just in case. 
+***********************************************************************************************************************************
+Setting up access to NAS on the raspberry pi
+          ***********************
+Once the NAS is created on windows use IP/folder_name to acc it, on mac it is the same. You can type the address in browser as well. 
+In order to set network on the raspberry pi, open a folder, go to top and click on "go" and then click on "network". 
+Now check if the network is visible. if it is not visible then do the following:
+-: sudo apt install nmap
+-: nmap -sn 0.0.0.0(IP)
+In order to set network on the raspberry pi, open a folder, go to top and click on "go" and then click on "network". 
+Now check if the network is visible. if it is not visible then do the following:
+************************************************************************************************************************************
 
 
 Next steps: 
