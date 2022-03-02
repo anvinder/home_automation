@@ -45,9 +45,11 @@ Once the NAS is created on windows use IP/folder_name to acc it, on mac it is th
 In order to set network on the raspberry pi, open a folder, go to top and click on "go" and then click on "network". 
 Now check if the network is visible. if it is not visible then do the following:
 -: sudo apt install nmap
--: nmap -sn 0.0.0.0(IP)
+-: nmap -sn 0.0.0.0(IP) 
+-: sudo apt install samba samba-common
 In order to set network on the raspberry pi, open a folder, go to top and click on "go" and then click on "network". 
-Now check if the network is visible. if it is not visible then do the following:
+Now check if the network is visible with this: smb://0.0.0.0/folder_name
+
 ************************************************************************************************************************************
 
 
