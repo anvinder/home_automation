@@ -59,6 +59,7 @@ Then the assigned letter can be used in python to access the network drive.  But
 
 
 
+
 Next steps: 
 - save the video on network drive instead of local drive
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
