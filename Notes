@@ -51,6 +51,12 @@ In order to set network on the raspberry pi, open a folder, go to top and click 
 Now check if the network is visible with this: smb://0.0.0.0/folder_name
 
 ************************************************************************************************************************************
+Since raspberry can only access mounted partitions on the machine so doing os.chdir("192.0.0.0") won't work. 
+The preocess to map the network drive to a drive letter (E:\, Z:\) etc is different for windows and linux. 
+On windows it can be done easily by right clicking "my computer" -> map network drive-> follow instructions. 
+Then the assigned letter can be used in python to access the network drive.  But this is not the case with linux (raspberry pi). 
+
+
 
 
 Next steps: 
