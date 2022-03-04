@@ -7,6 +7,7 @@ Connect the raspberry pi camera to the Pi and change the Pi preferences using th
  Check if the camera is working using the following :
   - raspistill -o test.jpg (The camera shows preview for 5 seconds before turnning off)
   if there are any errors please try the following:
+  - Enable legacy camera support in "sudo raspi-config"
     - vcgencmd get_camera
       - The output from this must be "supported=1 detected=1", if not then there could be camera hardware issues. 
     if you see "supported=1 detected=1" and the camera still doesn't work please try the following:
