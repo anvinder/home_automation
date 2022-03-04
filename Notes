@@ -52,25 +52,27 @@ Now check if the network is visible with this: smb://0.0.0.0/folder_name
 
 ************************************************************************************************************************************
 Since raspberry can only access mounted partitions on the machine so doing os.chdir("192.0.0.0") won't work. 
-The preocess to map the network drive to a drive letter (E:\, Z:\) etc is different for windows and linux. 
+The process to map the network drive to a drive letter (E:\, Z:\) etc is different for windows and linux. 
 On windows it can be done easily by right clicking "my computer" -> map network drive-> follow instructions. 
 Then the assigned letter can be used in python to access the network drive.  But this is not the case with linux (raspberry pi). 
 
-On raspberry pi do the following to mount a drive locally:
+On raspberry pi do the following to mount a drive locally and access it without R/W permission concerns:
+
 sudo apt install smbclient
 sudo apt-get install cifs-utils
-sudo mount -t smb://0.0.0.0/folder_name
-add this line to fstab file in etc folder: //0.0.0.0/nas /home/pi/xyzzz/local_folder_to_be_mapped_to_network cifs username=xyz password=xyz 0 0
+sudo mount -t smb://0.0.0.0/network_folder_name
 
-type this in cmd prompt: sudo mount -t cifs -o username=xyz,vers=2.0 //0.0.0.0/network_folder_name /home/pi/xyzz/local_folder_to_be_mapped_to_network
-The above command will map the network drive to the local machine (pi). 
-Now the pi has permission issues in order to write to the network mapped local folder. Figuring out that part now. 
+add to fstab (only once): 
+//0.0.0.0/network_folder_name /home/pi/location_of_mapped_folder cifs username=abc password=acx uid=1000,gid=1000,iocharset=utf8,sec=ntlm,file_mode=777,dir_mode=777
 
+type in terminal:
+sudo mount -t cifs -o username=abc,pass=acx,uid=1000,gid=1000,vers=2.0 //0.0.0.0/network_folder_name /home/pi/location_of_mapped_folder
 
-
+To view failure system logs, type in terminal: 
+tail -f  /var/log/kern.log 
 
 **************************************************************************************************************************************
 Next steps: 
-- save the video on network drive instead of local drive
+- Boot up needs mounting everytime. Find ways to auto mount on boot up
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
 
