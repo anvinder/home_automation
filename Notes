@@ -83,8 +83,9 @@ Need to run auto mount of network drive on bootup:
 Unable to figure out a way to do it so for now i'm using crontab to boot up and run auto mount. 
 
 Crontab command: 
+sudo crontab -e
 @reboot sleep 60 && sudo python /home/pi/Downloads/python_projects/home_automation/home_automation/main.py >> /home/pi/Downloads/cronlog.txt 2>&1
-
+To sav cron tab : ctrl + o, hit enter, exit using: ctrl + x
 The python scripts are now divided into 2 parts: 
 main.py
 	- run auto mount using smb
