@@ -73,7 +73,26 @@ To view failure system logs, type in terminal:
 tail -f  /var/log/kern.log 
 
 **************************************************************************************************************************************
+Take a backup of the drive just in case:
+clone image :
+sudo umount /dev/mmcblk (this is the main sd card)
+sudo dd if=/dev/mmcblk of=/dev/sda bs=1M status=progress (sda is the usb device : destination)
+
+Post backup: 
+Need to run auto mount of network drive on bootup: 
+Unable to figure out a way to do it so for now i'm using crontab to boot up and run auto mount. 
+
+Crontab command: 
+@reboot sleep 60 && sudo python /home/pi/Downloads/python_projects/home_automation/home_automation/main.py >> /home/pi/Downloads/cronlog.txt 2>&1
+
+The python scripts are now divided into 2 parts: 
+main.py
+	- run auto mount using smb
+	- motion detection
+	
 Next steps: 
 - Boot up needs mounting everytime. Find ways to auto mount on boot up
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
+
+
 
