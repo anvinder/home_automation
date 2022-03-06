@@ -1,0 +1,14 @@
+import requests
+
+def connected_to_internet(url, timeout):
+    try:
+        requests.head(url, timeout=timeout)
+        print("Network Available")
+        return True
+    except requests.ConnectionError:
+        print("No internet connection available.")
+    return False
+
+
+if __name__ == "__main__":
+    connected_to_internet(url='http://www.google.com/', timeout=5)
