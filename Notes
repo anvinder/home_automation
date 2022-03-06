@@ -91,9 +91,10 @@ main.py
 	- run auto mount using smb
 	- motion detection
 	
+
+Testing steps:
+Write script to power on and off 100 times and see how many times the network is ampped. In case if not, use local drive to write the video. 
+
 Next steps: 
-- Boot up needs mounting everytime. Find ways to auto mount on boot up
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
-
-
 
