@@ -96,5 +96,6 @@ Testing steps:
 Write script to power on and off 100 times and see how many times the network is ampped. In case if not, use local drive to write the video. 
 
 Next steps: 
+- Find a way to send the motion videos to the phone so that they can be saved on the phone also as part of redundancy.
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
 
