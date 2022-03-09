@@ -1,14 +1,42 @@
 import requests
+import os
+from time import sleep
 
-def connected_to_internet(url, timeout):
-    try:
-        requests.head(url, timeout=timeout)
-        print("Network Available")
-        return True
-    except requests.ConnectionError:
-        print("No internet connection available.")
-    return False
+
+class network_check():
+
+    def __init__(self):
+        self.url = 'http://www.google.com/'
+        self.timeout = 3
+        self.network_avail = 0
+        self.count_found_network = 0
+
+    def connected_to_internet(self):
+        try:
+            requests.head(self.url, timeout=self.timeout)
+            self.network_avail = 1
+        except requests.ConnectionError:
+            self.network_avail = 0
+        self.select_write_drive()
+
+    def select_write_drive(self):
+        if self.network_avail == 1:
+            print("Network Availability", self.network_avail)
+            os.chdir("\\\\0.0.0.0\\folder_name")
+            file_write = open("test123.txt", "w+")
+        elif self.network_avail == 0 and self.count_found_network < 6:
+            print("Network Availability", self.network_avail)
+            print("Retry:", self.count_found_network + 1)
+            sleep(1)
+            self.count_found_network += 1
+            self.connected_to_internet()
+        else:
+            os.chdir("C:\\some_local_folder_location")
+            file_write = open("test123.txt", "w+")
 
 
 if __name__ == "__main__":
-    connected_to_internet(url='http://www.google.com/', timeout=5)
+    obj_network_check = network_check()
+    obj_network_check.connected_to_internet()
+    # obj_network_check.select_write_drive()
+
