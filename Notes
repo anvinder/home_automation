@@ -97,5 +97,14 @@ Write script to power on and off 100 times and see how many times the network is
 
 Next steps: 
 - Find a way to send the motion videos to the phone so that they can be saved on the phone also as part of redundancy.
+	- Trying to use GSConnect on Linux and KDE Connect on the phone should help in file transfer
+- Also add following logic to code: 
+	- Currently if network dies randomly, the device is no more conencted to the NAS and cannot thus store videos on NAS. So once network resets, 
+		check for connection again and connect to network. 
+	Test Cases:
+	- Bootup->  Network Available-> save to NAS
+	- Boot up-> Network available-> save to NAS-> Network resets-> wait for bootup & 10s: netork still unavailable, save locally-> check network-> save to NAS, copy local vids to NAS
+	- Boot up-> Network Unavailable-> save on local drive-> check network-> network   available: save to NAS and copy local videos to NAS too
+	- Boot up-> Network Unavailable-> save on local drive-> check network-> network unavailable: save to local drive
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
 
