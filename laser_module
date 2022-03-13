@@ -1,0 +1,10 @@
+from gpiozero import LightSensor
+from time import sleep 
+
+ldr = LightSensor(4)
+print(ldr.value)
+
+while True:
+    sleep(0.1)
+    if ldr.value<0.5:
+        print("Intrusion detected")
