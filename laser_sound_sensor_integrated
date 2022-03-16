@@ -1,0 +1,24 @@
+from gpiozero import LightSensor
+import RPi.GPIO as GPIO
+from time import sleep 
+
+GPIO.setmode(GPIO.BCM)
+sound_gpio = 2
+GPIO.setup(sound_gpio, GPIO.IN)
+ldr = LightSensor(4)
+print(ldr.value)
+
+
+def callback(soung_gpio):
+    if GPIO.input(soung_gpio):
+        print("sound detected")
+    else:
+        print("sound not detected")
+GPIO.add_event_detect(sound_gpio, GPIO.BOTH, bouncetime = 300)
+GPIO.add_event_callback(sound_gpio, callback)
+
+
+while True:
+    sleep(0.1)
+    if ldr.value<0.5:
+        print("Laser Activated")
