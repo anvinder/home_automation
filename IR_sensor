@@ -1,0 +1,20 @@
+import RPi.GPIO as gpio
+import time
+from smbus2 import SMBus
+from mlx90614 import MLX90614
+
+
+
+while 1:
+    bus = SMBus(1)
+    sensor = MLX90614(bus, address=0x5A)
+    temp = sensor.get_obj_temp()
+    amb_temp = sensor.get_amb_temp()
+
+    bus.close()
+    if temp > 30:
+        print("Gas temperature: ", temp, "C")
+        print("Ambient Temp: ", amb_temp, "C")
+        time.sleep(0.5)
+    else:
+        time.sleep(0.5)
