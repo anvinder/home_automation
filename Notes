@@ -106,6 +106,7 @@ Next steps:
 	- Boot up-> Network available-> save to NAS-> Network resets-> wait for bootup & 10s: netork still unavailable, save locally-> check network-> save to NAS, copy local vids to NAS
 	- Boot up-> Network Unavailable-> save on local drive-> check network-> network   available: save to NAS and copy local videos to NAS too
 	- Boot up-> Network Unavailable-> save on local drive-> check network-> network unavailable: save to local drive
+- More sensors like laser, sound and IR detection has been integrated now. pressure and vibration can also be integrated. The current implementatio includes 96014 for IR detection
+    which can be cahnged to 96040 for better detection and heat map but the sensor cost is a limiting factor($90). 
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
-
-- more sensor integration
+-
