@@ -110,3 +110,4 @@ Next steps:
     which can be cahnged to 96040 for better detection and heat map but the sensor cost is a limiting factor($90). 
 - Look for an open source android app to show live feed. pushover is one of them but i need to check it. 
 - currently using pushbullet along with reviewer to remotely get notifications and see video.
+
