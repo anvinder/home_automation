@@ -111,4 +111,3 @@ Next steps:
 - currently using Push Bullet along with team viewer to remotely get notifications and see video.
 - Need to integrate mechanism for arming and disarming the circuit when leaving or entering the house just to save on recording time and erasing the storage so often. 
 - Learn Kivy to integrate it in an app. 
-
