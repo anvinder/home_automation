@@ -111,5 +111,5 @@ Availability of components is hurting very badly.
     which can be changed to 96040 for better detection and heat map but the sensor cost is a limiting factor($90). 
 - currently using Push Bullet along with team viewer to remotely get notifications and see video.
 - Need to integrate mechanism for arming and disarming the circuit when leaving or entering the house just to save on recording time and erasing the storage so often. 
-- Learn Kivy to integrate it in an app. 
+- Learn python Kivy to integrate it in an app and deploy it to android phone. 
 
